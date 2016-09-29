@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+.contenedor{
+	margin-top: 20px;
+}
+
+/*Estilo para el Slider*/
+ #owl-demo .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
