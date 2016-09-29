@@ -10,10 +10,15 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" >
     <!-- Bootstrap theme -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Fotorama Slider css -->
+    <link href="css/fotorama.css" rel="stylesheet">
     <!-- Estilos Propios -->
     <link href="css/estilos.css" rel="stylesheet" >
+    
     <!--  Java Script -->
-    <script type="text/javascript" src="js/java.js"></script>
+    <!-- Fotorama Slider JavaScript -->
+    <script type="text/javascript" src="js/fotorama.js"></script>
+    <!-- Jquery -->
     <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 </head>
 <body>
@@ -53,10 +58,10 @@
 <div class="container contenedor">
 	  <div class="row">
   			<div class="col-md-8">
-  				<div id="owl-demo" class="owl-carousel owl-theme">
-      				<div class="item"><img src="https://somoscancheros.files.wordpress.com/2014/07/canchas19.jpg" alt="The Last of us"></div>
-      				<div class="item"><img src="http://www.hoysejuega.com/uploads/Modules/ImagenesComplejos/800_600_futbol-madero-canchas-de-futbol.jpg" alt="GTA V"></div>
-      				<div class="item"><img src="http://static.cdn.cadena3.com/admin/playerswf/fotos/ARCHI_261842.jpg" alt="Mirror Edge"></div>
+  				<div class="fotorama" data-width="700" data-ratio="700/467" data-max-width="100%">
+      				<div class="item"><img src="images/img1.jpg" alt="The Last of us"></div>
+      				<div class="item"><img src="images/img2.jpg" alt="GTA V"></div>
+      				<div class="item"><img src="images/img3.jpg" alt="GTA V"></div>
      			</div>
 
   			
