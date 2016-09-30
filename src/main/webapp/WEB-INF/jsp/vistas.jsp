@@ -19,7 +19,7 @@
     <!-- Fotorama Slider JavaScript -->
     <script type="text/javascript" src="js/fotorama.js"></script>
     <!-- Jquery -->
-    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -59,9 +59,9 @@
 	  <div class="row">
   			<div class="col-md-8">
   				<div class="fotorama" data-width="700" data-ratio="700/467" data-max-width="100%">
-      				<div class="item"><img src="images/img1.jpg" alt="The Last of us"></div>
-      				<div class="item"><img src="images/img2.jpg" alt="GTA V"></div>
-      				<div class="item"><img src="images/img3.jpg" alt="GTA V"></div>
+      				<div class="item"><img src="images/img1.jpg"></div>
+      				<div class="item"><img src="images/img2.jpg"></div>
+      				<div class="item"><img src="images/img3.jpg"></div>
      			</div>
 
   			
