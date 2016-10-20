@@ -1,6 +1,6 @@
 package ar.edu.grupoesfera.cursospring.clases;
 
-public class loggin {
+public class Loggin {
 
 	private String usuario;
 	private String password;
