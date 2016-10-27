@@ -1,6 +1,7 @@
 package ar.edu.grupoesfera.cursospring.clases;
 
 public class Usuario {
+	private Integer idUsuario;
 	private String nombre;
 	private String apellido;
 	private String nomUsuario;
@@ -43,6 +44,12 @@ public class Usuario {
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	public Integer getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	
 

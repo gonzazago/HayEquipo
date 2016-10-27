@@ -1,42 +1,21 @@
 @CHARSET "ISO-8859-1";
 
-body {
-    font-family: arial;
-    margin: 0;
-    padding: 0;
-}
-#contenedor-registrarse{
-	background: url(../images/estadios-futbol-wallpapers-3.jpg);
-}
-h2.introduccion {
-    font-size: 49px;
-    text-shadow: 0px 3px 4px rgba(0,0,0,.5);
-}
-#intro {
-    background: url(../images/img_fdo.jpg) 50% 0 fixed;
-    min-height: 700px;
-    width: 100%;
-    
-}
 .intro-unit {
     color: #ddd;
     padding: 60px;
     text-align: center;
+    font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:black;
+    
 }
-#bloque1 {
-	 background-color: #000000;
-    margin: 0 auto;
-    width: 100%;
+.personalizada{
+				background:rgba(24,8,33,.9);
+				color:#fff;
+				box-shadow:0 5px 5px 3px rgba(0, 0, 0, 0.25);
 }
-#bloque-img1 {
-    background: url(../images/img_fdo_2.jpg) 100% 0 fixed ;
-     height: 300px;
-    padding: 100px 0;
-}
-
-
 #slides {
-      display: none
+      display: none;
+      width: 100%;
     }
 
     .container {

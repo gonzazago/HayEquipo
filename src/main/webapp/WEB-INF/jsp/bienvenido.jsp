@@ -8,7 +8,7 @@
 </head>
 <body>
 
-bienvenido: ${nombre}
+bienvenido: ${session}
 <a href="home">Logout</a>
 </body>
 </html>

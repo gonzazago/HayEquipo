@@ -1,6 +1,7 @@
 package ar.edu.grupoesfera.cursospring.controladores;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,11 +19,10 @@ public class ControladorRegistrarse {
 	@Inject
 	private RegistrarUsuario registrarUsuario;
 	
-	@RequestMapping(value = "/registrarse", method = { RequestMethod.POST })
-	public ModelAndView crearUsuario(@ModelAttribute Usuario user,
-			ModelMap model) {
+	@RequestMapping(value = "/registro", method = { RequestMethod.POST })
+	public ModelAndView crearUsuario(@ModelAttribute Usuario user,ModelMap model, HttpServletRequest req) {
 		
-		registrarUsuario.crearUsuario(user, model);
+		registrarUsuario.crearUsuario(user, model,req);
 
 		return new ModelAndView("bienvenido", model);
 	}

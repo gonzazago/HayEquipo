@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hay Equipo - Registro</title>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -13,14 +14,12 @@
 
 <!-- Estilos Propios -->
 <link href="css/estilos.css" rel="stylesheet">
-<link rel="stylesheet" href="css/example.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!-- Slider -->
 <script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/java.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.slides.min.js"></script>
+
 </head>
 <body>
 
@@ -48,9 +47,12 @@
 	</div>
 </nav>
 <div class="row">
-	<div id="contenedor-registrarse">
+	
 		 <div class="col-md-6 col-md-offset-3">
-				<form:form action="registrarse" method="POST" ModelAttribute="Usuario" role="form">
+			<form:form action="registro" method="POST" ModelAttribute="Usuario" role="form">
+					<div class="form-group">
+						<form:hidden path="idUsuario"/>
+					</div>
 					<div class="form-group">
 						<label for="nombre">Nombre</label>
 						<form:input class="form-control" id="nombre" path="nombre"/>
@@ -86,7 +88,7 @@
 				</form:form>
 			</div>
 		</div>
-	</div>
+	
 
 </body>
 </html>

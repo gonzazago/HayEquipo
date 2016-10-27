@@ -1,6 +1,7 @@
 package ar.edu.grupoesfera.cursospring.controladores;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,15 +21,16 @@ public class ControladorLoggin {
 	private UsuarioLoggin logginUsuario;
 	
 	@RequestMapping(value = "/inicioSesion", method = { RequestMethod.POST })
-	public ModelAndView validarUsuario(@ModelAttribute Loggin user, ModelMap model) {
-		return new ModelAndView("bienvenido", model);
-		/*if(logginUsuario.verficarUsuario(user) == true)
-			return new ModelAndView("bienvenido", model);
-		else
-			return new ModelAndView("loggin", "command", new Loggin());*/
-		  
-
+	public ModelAndView validarUsuario(@ModelAttribute Loggin user, ModelMap model,HttpServletRequest req) {
 		
+		if(logginUsuario.verficarUsuario(user,req,model) == true){
+			req.getSession().setAttribute("usuario",user.getUsuario());
+			return new ModelAndView("vistas", model);
+		}
+		else
+			return new ModelAndView("loggin", "command", new Loggin());
+		  
 	}
+	
 
 }

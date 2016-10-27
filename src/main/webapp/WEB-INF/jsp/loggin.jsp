@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hay Equipo - Iniciar Sesion</title>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,14 +16,13 @@
 
 <!-- Estilos Propios -->
 <link href="css/estilos.css" rel="stylesheet">
-<link rel="stylesheet" href="css/example.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!-- Slider -->
 <script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/java.js"></script>
+
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.slides.min.js"></script>
+
 </head>
 <body>
 
@@ -68,5 +68,10 @@
 			</div>
 		</div>
 	</div>
+	<div class="panel panel-default">
+  <div class="panel-body">
+    <p class="text-center">Si no tienes usuarios puedes registrarte haciendo click <a href="registrarse">aqui</a></p>
+  </div>
+</div>
 </body>
 </html>
