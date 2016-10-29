@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.grupoesfera.cursospring.clases.Loggin;
-import ar.edu.grupoesfera.cursospring.clases.Usuario;
+import ar.edu.grupoesfera.cursospring.modelo.Loggin;
+import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 import ar.edu.grupoesfera.cursospring.servicios.RegistrarUsuario;
 import ar.edu.grupoesfera.cursospring.servicios.UsuarioLoggin;
 

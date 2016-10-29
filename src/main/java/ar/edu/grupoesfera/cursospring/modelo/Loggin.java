@@ -1,4 +1,4 @@
-package ar.edu.grupoesfera.cursospring.clases;
+package ar.edu.grupoesfera.cursospring.modelo;
 
 public class Loggin {
 

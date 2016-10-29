@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
-import ar.edu.grupoesfera.cursospring.clases.Loggin;
+import ar.edu.grupoesfera.cursospring.modelo.Loggin;
 
 @Service
 public class VerificarUsuarioImple implements VerificarUsuario{
