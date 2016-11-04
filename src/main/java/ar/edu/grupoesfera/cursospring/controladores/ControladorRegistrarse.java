@@ -21,10 +21,10 @@ public class ControladorRegistrarse {
 	
 	@RequestMapping(value = "/registro", method = { RequestMethod.POST })
 	public ModelAndView crearUsuario(@ModelAttribute Usuario user,ModelMap model, HttpServletRequest req) {
-		
 		registrarUsuario.crearUsuario(user, model,req);
+		req.getSession().setAttribute("usuario",user.getNombre());
 
-		return new ModelAndView("bienvenido", model);
+		return new ModelAndView("vistas", model);
 	}
 
 }

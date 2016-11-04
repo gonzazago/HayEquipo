@@ -9,9 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.grupoesfera.cursospring.modelo.Cancha;
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
+import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 import ar.edu.grupoesfera.cursospring.servicios.UsuarioLoggin;
 import ar.edu.grupoesfera.cursospring.servicios.VerificarUsuario;
@@ -22,7 +25,7 @@ public class ControladorInicio {
 	private VerificarUsuario usuario;
 		
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView modelarVista( ModelMap model,HttpServletRequest req) {
+	public ModelAndView modelarVista( ModelMap model,HttpServletRequest req,Partido id) {
 		return new ModelAndView("vistas", model);
 	}
 	
@@ -36,20 +39,29 @@ public class ControladorInicio {
 				return new ModelAndView("loggin","command",new Loggin());
 	}
 	
+	@RequestMapping(value="/perfil",method = { RequestMethod.GET })
+	public ModelAndView unirsePartido (ModelMap model, HttpServletRequest req, Loggin user){
+		return new ModelAndView("perfil",model);
+		
+	}
+	
 	@RequestMapping(value = "/logout", method = { RequestMethod.GET })
 	public ModelAndView cerrarSesion(HttpServletRequest session, ModelMap model) {
 				session.getSession().invalidate();
 				return new ModelAndView("vistas",model);
 	}
 	
-	@RequestMapping(value="/unirse", method = {RequestMethod.GET})
-	public ModelAndView unirsePartido (ModelMap model, HttpServletRequest req, Loggin user){
+	@RequestMapping(value="/unirse",method = { RequestMethod.GET })
+	public ModelAndView unirsePartido (@RequestParam("id") Long idPartido,ModelMap model, HttpServletRequest req, Loggin user){
 		Boolean resp = usuario.verificarUsuarioLogeado(user,req);
 		if(resp == false)
 			return new ModelAndView("loggin","command",new Loggin());
 		else
-			return new ModelAndView("vistas", model);
+			model.addAttribute("idPartido",idPartido);
+			return new ModelAndView("partidoUnirse", model);
 		
 	}
+	
+	
 
 }

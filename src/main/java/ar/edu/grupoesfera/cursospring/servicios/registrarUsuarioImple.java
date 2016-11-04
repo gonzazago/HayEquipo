@@ -20,7 +20,6 @@ public class registrarUsuarioImple implements RegistrarUsuario {
 		model.addAttribute("password",user.getPassword());
 		model.addAttribute("password2",user.getPassword2());
 		model.addAttribute("mail",user.getMail());
-		model.addAttribute("session",nombreUsuario);
 
 		
 	}

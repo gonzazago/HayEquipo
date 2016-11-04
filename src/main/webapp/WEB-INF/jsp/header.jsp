@@ -10,13 +10,13 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Hay Equipo !</a>
+			<a class="navbar-brand" href="home">Hay Equipo !</a>
 		</div>
 
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="#partidos">Partidos</a></li>
-				<li><a href="#">Canchas</a></li>
+				<li><a href="#canchas">Canchas</a></li>
 			</ul>
 				<form class="navbar-form navbar-left">
 					<div class="form-group">
@@ -28,7 +28,7 @@
 				</form>
 			<ul class="nav navbar-nav">
 				<li><a href="#partidos">Jugadores</a></li>
-				<li><a href="#">Equipos</a></li>
+				<li><a href="#equipos">Equipos</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 			<c:choose>
@@ -43,7 +43,7 @@
 					</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a 	href="home"> <span
+					<li><a 	href="perfil"> <span
 							class="glyphicon glyphicon-user" aria-hidden="true"></span>
 							Usuario: ${usuario}
 					</a></li>

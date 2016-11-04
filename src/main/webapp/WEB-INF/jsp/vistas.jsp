@@ -18,7 +18,7 @@
 <link href="css/estilos.css" rel="stylesheet">
 <link href="css/parallax.css" rel="stylesheet">
 <link rel="stylesheet" href="css/example.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!-- Slider -->
 <script src="js/jquery-1.11.3.min.js"></script>
@@ -40,10 +40,12 @@
       			<img src="images/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
     		</div>
   			</div>
-	
 		<div class="intro-unit">
+			<div class="separador">
+				<div class="encabezado"> <h1> Partidos del Dia</h1>	 </div>
+			</div>	
 			<a name="partidos"></a>
-			<table class="personalizada">
+			<table class="table table-hover">
 			  <th>Partido</th>
 			  <th>Horario</th>
 			  <th>Cancha</th>
@@ -56,12 +58,73 @@
 			  	<td>Terminado</td>
 			  	<td>Gano Equipo 1</td>
 			  	<td>
-			  		<a href="unirse">Unirse a partido</a>
+			  		<a href="unirse?id=123">Unirse a partido</a>
 			  	</td>
 			  				  	
 			  </tr>
 			</table>
-		
+			<div class="separador">
+				<div class="encabezado"> <h1> Jugadores</h1> </div>
+			</div>	
+			<a name="jugadores"></a>
+			<table class="table table-hover">
+			  <th>Partido</th>
+			  <th>Horario</th>
+			  <th>Cancha</th>
+			  <th>Estado</th>
+			  <th>Resultado</th>
+			  <tr>
+			  	<td>Partido Prueba</td>
+			  	<td>20:00 hs</td>
+			  	<td>Cancha Prueba</td>
+			  	<td>Terminado</td>
+			  	<td>Gano Equipo 1</td>			  				  	
+			  </tr>
+			</table>
+			<div class="separador">
+				<div class="encabezado"> <h1>canchas</h1> </div>
+			</div>	
+			<a name="canchas"></a>
+			<table class="table table-hover">
+			  <th>Partido</th>
+			  <th>Horario</th>
+			  <th>Cancha</th>
+			  <th>Estado</th>
+			  <th>Resultado</th>
+			  <tr>
+			  	<td>Partido Prueba</td>
+			  	<td>20:00 hs</td>
+			  	<td>Cancha Prueba</td>
+			  	<td>Terminado</td>
+			  	<td>Gano Equipo 1</td>
+			  	<td>
+			  		<a href="#">Ver Cancha</a>
+			  	</td>
+			  				  	
+			  </tr>
+			</table>
+		<div class="separador">
+				<div class="encabezado"> <h1>Equipos</h1> </div>
+			</div>	
+			<a name="equipos"></a>
+			<table class="table table-hover">
+			  <th>Partido</th>
+			  <th>Horario</th>
+			  <th>Cancha</th>
+			  <th>Estado</th>
+			  <th>Resultado</th>
+			  <tr>
+			  	<td>Partido Prueba</td>
+			  	<td>20:00 hs</td>
+			  	<td>Cancha Prueba</td>
+			  	<td>Terminado</td>
+			  	<td>Gano Equipo 1</td>
+			  	<td>
+			  		<a href="#">Ver Equipo</a>
+			  	</td>
+			  				  	
+			  </tr>
+			</table>
 		</div>
 
 </div>

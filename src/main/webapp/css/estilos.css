@@ -6,12 +6,27 @@
     text-align: center;
     font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
     color:black;
+    margin-top: 20px;
     
 }
 .personalizada{
 				background:rgba(24,8,33,.9);
 				color:#fff;
 				box-shadow:0 5px 5px 3px rgba(0, 0, 0, 0.25);
+}
+.separador{
+	width: 100%;
+	margin: 10px auto;
+	background: rgba(24,8,33,.9);
+	color: #fff;
+	box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.25);
+	height: 100px;
+	font-family: helvetica, arial, sans-serif;
+	text-align: center;
+	font-size: 40px;
+}
+.encabezado{
+	
 }
 #slides {
       display: none;
@@ -20,7 +35,13 @@
 
     .container {
       margin: 0 auto;
-      widyh: 100%;
+      width: 100%;
+    }
+    
+    .container-2 {
+      margin: 20px;
+      width: 100%;
+      position: fixed;
     }
 
     /* For tablets & smart phones */

@@ -1,9 +1,11 @@
 package ar.edu.grupoesfera.cursospring.modelo;
 
+
 public class Cancha {
 	
 	private Long idCancha;
 	private String nombre;
+	private String provincia;
 	private String localidad;
 	private String calle;
 	private Integer numero;
@@ -44,6 +46,12 @@ public class Cancha {
 	}
 	public void setCanchasDisponibles(Integer canchasDisponibles) {
 		this.canchasDisponibles = canchasDisponibles;
+	}
+	public String getProvincia() {
+		return provincia;
+	}
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
 	}
 
 }
