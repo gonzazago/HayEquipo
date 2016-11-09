@@ -62,6 +62,9 @@ public class ControladorInicio {
 		
 	}
 	
-	
+	@RequestMapping(value = "/crearPartido")
+	public ModelAndView crearPartido() {				
+				return new ModelAndView("crearPartido");
+	}
 
 }

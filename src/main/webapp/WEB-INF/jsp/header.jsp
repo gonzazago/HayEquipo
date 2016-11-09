@@ -15,7 +15,7 @@
 
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="#partidos">Partidos</a></li>
+				<li><a href="crearPartido">Partidos</a></li>
 				<li><a href="#canchas">Canchas</a></li>
 			</ul>
 				<form class="navbar-form navbar-left">
