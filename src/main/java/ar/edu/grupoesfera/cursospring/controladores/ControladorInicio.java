@@ -62,9 +62,9 @@ public class ControladorInicio {
 		
 	}
 	
-	@RequestMapping(value = "/crearPartido")
-	public ModelAndView crearPartido() {				
-				return new ModelAndView("crearPartido");
+	@RequestMapping(value = "/crearPartido", method = { RequestMethod.GET })
+	public ModelAndView crearPartido(ModelMap model) {				
+				return new ModelAndView("crearPartido","command",new Partido());
 	}
 
 }
