@@ -9,8 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+@Entity
 public class Usuario {
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idUsuario;
 	private String nombre;
 	private String apellido;

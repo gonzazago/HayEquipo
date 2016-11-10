@@ -1,6 +1,8 @@
 package ar.edu.grupoesfera.cursospring.controladores;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,6 +18,8 @@ import ar.edu.grupoesfera.cursospring.modelo.Cancha;
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
 import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
+import ar.edu.grupoesfera.cursospring.servicios.CanchasServicios;
+import ar.edu.grupoesfera.cursospring.servicios.PartidosServicios;
 import ar.edu.grupoesfera.cursospring.servicios.UsuarioLoggin;
 import ar.edu.grupoesfera.cursospring.servicios.VerificarUsuario;
 
@@ -23,9 +27,17 @@ import ar.edu.grupoesfera.cursospring.servicios.VerificarUsuario;
 public class ControladorInicio {
 	@Inject
 	private VerificarUsuario usuario;
+	@Inject
+	private CanchasServicios canchas;
+	@Inject
+	private PartidosServicios partidos;
 		
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView modelarVista( ModelMap model,HttpServletRequest req,Partido id) {
+		List<Cancha> cancha =   canchas.listarCanchas();
+		List<Partido> partido = partidos.listarPartidos();
+		model.put("canchas",cancha);
+		model.put("partidos",partido);
 		return new ModelAndView("vistas", model);
 	}
 	

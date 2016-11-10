@@ -6,14 +6,18 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
+import ar.edu.grupoesfera.cursospring.dao.InsertarUsuario;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 @Service
 public class registrarUsuarioImple implements RegistrarUsuario {
 	
 	public void crearUsuario(Usuario user, ModelMap model, HttpServletRequest req){
+
+		InsertarUsuario usuario =  new InsertarUsuario();
+		usuario.cargarUsuario(user);
 		
-		String nombreUsuario = req.getParameter("nomUsuario");
+		
 		model.addAttribute("nombre",user.getNombre());
 		model.addAttribute("apellido",user.getApellido());
 		model.addAttribute("nomUsuario",user.getNomUsuario());

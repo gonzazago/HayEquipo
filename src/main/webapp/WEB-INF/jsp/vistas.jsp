@@ -46,21 +46,28 @@
 			</div>	
 			<a name="partidos"></a>
 			<table class="table table-hover">
-			  <th>Partido</th>
-			  <th>Horario</th>
 			  <th>Cancha</th>
+			  <th>Horario</th>
+			  <th>Local</th>
+			  <th>Visitante</th>
+			  <th>Fecha</th>
 			  <th>Estado</th>
 			  <th>Resultado</th>
 			  <tr>
-			  	<td>Partido Prueba</td>
-			  	<td>20:00 hs</td>
-			  	<td>Cancha Prueba</td>
-			  	<td>Terminado</td>
-			  	<td>Gano Equipo 1</td>
+			  	<c:forEach items="${partidos}" var="partido">
+			  	<td>${partido.cancha}</td>
+			  	<td>${partido.horarioPartido}</td>
+			  	<td>${partido.nombreEquipo1}</td>
+			  	<td>${partido.nombreEquipo2}</td>
+			  	<td>${partido.fechaPartido}</td>
+			  	<td>${partido.estado}</td>
+			  	<td>${partido.resultado}</td>
 			  	<td>
 			  		<a href="unirse?id=123">Unirse a partido</a>
 			  	</td>
-			  				  	
+			  </tr>
+			  </c:forEach>
+			  				  
 			  </tr>
 			</table>
 			<div class="separador">
@@ -86,22 +93,25 @@
 			</div>	
 			<a name="canchas"></a>
 			<table class="table table-hover">
-			  <th>Partido</th>
-			  <th>Horario</th>
-			  <th>Cancha</th>
-			  <th>Estado</th>
-			  <th>Resultado</th>
+			  <th>Nombre</th>
+			  <th>Provincia</th>
+			  <th>Localidad</th>
+			  <th>Calle</th>
+			  <th>Numero</th>
+			  <th>Canchas Disponibles</th>
 			  <tr>
-			  	<td>Partido Prueba</td>
-			  	<td>20:00 hs</td>
-			  	<td>Cancha Prueba</td>
-			  	<td>Terminado</td>
-			  	<td>Gano Equipo 1</td>
+			  <c:forEach items="${canchas}" var="cancha">
+			  	<td>${cancha.nombre}</td>
+			  	<td>${cancha.provincia}</td>
+			  	<td>${cancha.localidad}</td>
+			  	<td>${cancha.calle}</td>
+			  	<td>${cancha.numero}</td>
+			  	<td>${cancha.canchasDisponibles}</td>
 			  	<td>
 			  		<a href="#">Ver Cancha</a>
 			  	</td>
-			  				  	
 			  </tr>
+			  </c:forEach>
 			</table>
 		<div class="separador">
 				<div class="encabezado"> <h1>Equipos</h1> </div>
@@ -114,7 +124,7 @@
 			  <th>Estado</th>
 			  <th>Resultado</th>
 			  <tr>
-			  	<td>Partido Prueba</td>
+			  	<td>${partido }</td>
 			  	<td>20:00 hs</td>
 			  	<td>Cancha Prueba</td>
 			  	<td>Terminado</td>

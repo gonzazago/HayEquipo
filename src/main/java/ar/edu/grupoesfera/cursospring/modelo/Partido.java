@@ -9,6 +9,9 @@ public class Partido {
 	private Integer cantJugadores;
 	private String fechaPartido;
 	private String horarioPartido;
+	private String estado;
+	private String resultado;
+	
 	public Long getIdPartido() {
 		return idPartido;
 	}
@@ -50,6 +53,18 @@ public class Partido {
 	}
 	public void setHorarioPartido(String horarioPartido) {
 		this.horarioPartido = horarioPartido;
+	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public String getResultado() {
+		return resultado;
+	}
+	public void setResultado(String resultado) {
+		this.resultado = resultado;
 	}
 	
 }
