@@ -31,54 +31,53 @@
 <div class="container-2">
 	<div class="row">
 		<div class="list-group col-xs-6 col-md-4">
-			 <a href="#" class="list-group-item active">
-    			Cras justo odio
+			 <a href="modificarDatos" class="list-group-item active">
+    			Modificar Datos
   			</a>
-  			<a href="#crearPartido" class="list-group-item">Crear Partido</a>
+  			<a href="crearPartido" class="list-group-item">Crear Partido</a>
   			<a href="registrarCancha" class="list-group-item">Crear Cancha</a>
-  			<a href="#pendientes" class="list-group-item">Partidos Pendientes</a>
-  			<a href="#historial" class="list-group-item">Historial de Partidos</a>
-  			<a href="#unirseEquipo" class="list-group-item">Unirme a equipo</a>
-  			<a href="modificarDatos" class="list-group-item">Modificar Datos</a>	
+  			<a href="#pendientes" class="list-group-item">Crear Equipo</a>
+  			<a href="#unirseEquipo" class="list-group-item">Unirme a equipo</a>	
 		</div>
 		<div class= "col-xs-12 col-sm-6 col-md-8">
-		
-			<a name="historial"></a>
-				<table class="table table-hover">
-			  			<th>Partido</th>
-			  			<th>Horario</th>
-			  			<th>Cancha</th>
-			  			<th>Estado</th>
-			  			<th>Resultado</th>
-			  		<tr>
-				  		<td>Partido Prueba</td>
-				  		<td>20:00 hs</td>
-					  	<td>Cancha Prueba</td>
-					  	<td>Terminado</td>
-			  			<td>Gano Equipo 1</td>			  				  	
-			  		</tr>
-				</table>
-		</div>
-		<div class= "col-xs-12 col-sm-6 col-md-8">
-			<a name="pendientes"></a>
-				<table class="table table-hover">
-			  			<th>Partido</th>
-			  			<th>Horario</th>
-			  			<th>Cancha</th>
-			  			<th>Estado</th>
-			  			<th>Resultado</th>
-			  		<tr>
-				  		<td>Partido Prueba</td>
-				  		<td>20:00 hs</td>
-					  	<td>Cancha Prueba</td>
-					  	<td>Terminado</td>
-			  			<td>Gano Equipo 1</td>			  				  	
-			  		</tr>
-				</table>
-		</div>
+			<div class="separador">
+					<div class="encabezado"> <h1>Historial de Partidos</h1> </div>
+				</div>	 	
+					<table class="table table-hover">
+			  				<th>Partido</th>
+			  				<th>Horario</th>
+			  				<th>Cancha</th>
+			  				<th>Estado</th>
+			  				<th>Resultado</th>
+			  			<tr>
+				  			<td>Partido Prueba</td>
+				  			<td>20:00 hs</td>
+					  		<td>Cancha Prueba</td>
+					  		<td>Terminado</td>
+			  				<td>Gano Equipo 1</td>			  				  	
+			  			</tr>
+					</table>
+				<div class="separador">
+					<div class="encabezado"> <h1> Partidos del Dia</h1>	 </div>
+				</div>	
+					<table class="table table-hover">
+			  				<th>Partido</th>
+			  				<th>Horario</th>
+			  				<th>Cancha</th>
+			  				<th>Estado</th>
+			  				<th>Resultado</th>
+			  			<tr>
+				  			<td>Partido Prueba</td>
+				  			<td>20:00 hs</td>
+					  		<td>Cancha Prueba</td>
+					  		<td>Terminado</td>
+			  				<td>Gano Equipo 1</td>			  				  	
+			  			</tr>
+					</table>
+			</div>
 	</div>
 </div>
-</div>
+
 
 </body>
 </html>

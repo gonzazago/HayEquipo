@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
 
-@Service
+/*@Service
 public class VerificarUsuarioImple implements VerificarUsuario{
 
-	public Boolean verificarUsuarioLogeado(Loggin user,HttpServletRequest req){
+	public Boolean verificarUsuarioLogeado(Loggin user){
 		req.getSession().getAttribute("usuario");
 		
 		if(req.getSession().getAttribute("usuario") == null)
@@ -19,4 +19,4 @@ public class VerificarUsuarioImple implements VerificarUsuario{
 		else
 			return true;
 	}
-}
+}*/

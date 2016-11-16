@@ -8,6 +8,6 @@ import ar.edu.grupoesfera.cursospring.modelo.Loggin;
 
 public interface UsuarioLoggin {
 
-	public boolean verficarUsuario(Loggin user, HttpServletRequest req,ModelMap model);
+	public boolean verficarUsuario(Loggin user);
 	
 }

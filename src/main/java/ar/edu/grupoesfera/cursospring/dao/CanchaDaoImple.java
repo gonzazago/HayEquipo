@@ -1,5 +1,7 @@
 package ar.edu.grupoesfera.cursospring.dao;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
@@ -11,18 +13,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.grupoesfera.cursospring.modelo.Cancha;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
-
-@Service("insertarUsuario")
-@Transactional
-public class InsertarCancha {
+@Service
+public class CanchaDaoImple implements CanchaDao{
 	@Inject
 	private SessionFactory sessionFactory;
    
-	@PostConstruct
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
-	public void cargarUsuario(Cancha cancha){
-    	final Session session = sessionFactory.openSession();
+	public void insertarCancha(Cancha cancha){
+    	final Session session = sessionFactory.getCurrentSession();
     	session.save(cancha);
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+    public List<Cancha> getCanchas(){
+    	final Session session = sessionFactory.getCurrentSession();
+    	List<Cancha> lista = session.createCriteria(Cancha.class).list();
+    	return lista;
+    }
 }

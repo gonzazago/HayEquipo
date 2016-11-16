@@ -63,7 +63,7 @@
 			  	<td>${partido.estado}</td>
 			  	<td>${partido.resultado}</td>
 			  	<td>
-			  		<a href="unirse?id=123">Unirse a partido</a>
+			  		<a href="unirse?id=${idPartido}">Unirse a partido</a>
 			  	</td>
 			  </tr>
 			  </c:forEach>
@@ -108,7 +108,7 @@
 			  	<td>${cancha.numero}</td>
 			  	<td>${cancha.canchasDisponibles}</td>
 			  	<td>
-			  		<a href="#">Ver Cancha</a>
+			  		<a href="unirse?id=${cancha.idCancha}">Ver Cancha</a>
 			  	</td>
 			  </tr>
 			  </c:forEach>
@@ -130,7 +130,7 @@
 			  	<td>Terminado</td>
 			  	<td>Gano Equipo 1</td>
 			  	<td>
-			  		<a href="#">Ver Equipo</a>
+			  		<a href="unirse?id=${idEquipo}">Ver Equipo</a>
 			  	</td>
 			  				  	
 			  </tr>

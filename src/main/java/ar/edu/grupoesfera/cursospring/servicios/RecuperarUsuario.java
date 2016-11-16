@@ -8,6 +8,6 @@ import ar.edu.grupoesfera.cursospring.modelo.Loggin;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 public interface RecuperarUsuario {
-	public Usuario buscarUsuario(Loggin user,HttpServletRequest req,ModelMap model);
+	public Usuario buscarUsuario(Loggin user);
 
 }

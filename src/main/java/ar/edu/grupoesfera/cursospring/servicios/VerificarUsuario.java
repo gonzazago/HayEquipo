@@ -6,6 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
 
 public interface VerificarUsuario {
-	public Boolean verificarUsuarioLogeado(Loggin user,HttpServletRequest req);
+	public Boolean verificarUsuarioLogeado(Loggin user);
 
 }

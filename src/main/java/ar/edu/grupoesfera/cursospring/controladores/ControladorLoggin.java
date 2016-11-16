@@ -18,17 +18,20 @@ import ar.edu.grupoesfera.cursospring.servicios.UsuarioLoggin;
 @Controller
 public class ControladorLoggin {
 	@Inject
-	private UsuarioLoggin logginUsuario;
+	 private UsuarioLoggin logginUsuario;
+	
 	
 	@RequestMapping(value = "/inicioSesion", method = { RequestMethod.POST })
 	public ModelAndView validarUsuario(@ModelAttribute Loggin user, ModelMap model,HttpServletRequest req) {
 		
-		if(logginUsuario.verficarUsuario(user,req,model) == true){
+		if(logginUsuario.verficarUsuario(user) == false)
+			return new ModelAndView("loggin", "command", new Loggin());
+		
+		else{
 			req.getSession().setAttribute("usuario",user.getUsuario());
 			return new ModelAndView("vistas", model);
 		}
-		else
-			return new ModelAndView("loggin", "command", new Loggin());
+			
 		  
 	}
 	

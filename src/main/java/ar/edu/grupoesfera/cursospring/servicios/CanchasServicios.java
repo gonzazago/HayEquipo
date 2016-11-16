@@ -11,7 +11,7 @@ import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 public interface CanchasServicios {
 	
-	public void registrarCancha(Cancha cancha, ModelMap model, HttpServletRequest req);
+	public void registrarCancha(Cancha cancha);
 	public List<Cancha> listarCanchas();
 
 }

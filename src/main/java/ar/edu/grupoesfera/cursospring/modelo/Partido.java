@@ -1,9 +1,26 @@
 package ar.edu.grupoesfera.cursospring.modelo;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+@Entity
 public class Partido {
 
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idPartido;
-	private String cancha;
+	@ManyToOne @JoinColumn(name = "id_cancha", nullable = false)
+	private Cancha cancha;
 	private String nombreEquipo1;
 	private String nombreEquipo2;
 	private Integer cantJugadores;
@@ -18,12 +35,7 @@ public class Partido {
 	public void setIdPartido(Long idPartido) {
 		this.idPartido = idPartido;
 	}
-	public String getCancha() {
-		return cancha;
-	}
-	public void setCancha(String cancha) {
-		this.cancha = cancha;
-	}
+	
 	public String getNombreEquipo1() {
 		return nombreEquipo1;
 	}
@@ -65,6 +77,12 @@ public class Partido {
 	}
 	public void setResultado(String resultado) {
 		this.resultado = resultado;
+	}
+	public void setCancha(Cancha cancha) {
+		this.cancha = cancha;
+	}
+	public Cancha getCancha() {
+		return cancha;
 	}
 	
 }

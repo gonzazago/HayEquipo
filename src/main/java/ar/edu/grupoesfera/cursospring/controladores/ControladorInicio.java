@@ -20,22 +20,25 @@ import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 import ar.edu.grupoesfera.cursospring.servicios.CanchasServicios;
 import ar.edu.grupoesfera.cursospring.servicios.PartidosServicios;
+import ar.edu.grupoesfera.cursospring.servicios.RegistrarUsuario;
 import ar.edu.grupoesfera.cursospring.servicios.UsuarioLoggin;
 import ar.edu.grupoesfera.cursospring.servicios.VerificarUsuario;
 
 @Controller
 public class ControladorInicio {
-	@Inject
-	private VerificarUsuario usuario;
+/*	@Inject
+	private VerificarUsuario usuario;*/
+	
 	@Inject
 	private CanchasServicios canchas;
+	
 	@Inject
-	private PartidosServicios partidos;
-		
+	private PartidosServicios partidosServicios;
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView modelarVista( ModelMap model,HttpServletRequest req,Partido id) {
+	public ModelAndView modelarVista( ModelMap model,HttpServletRequest req) {
 		List<Cancha> cancha =   canchas.listarCanchas();
-		List<Partido> partido = partidos.listarPartidos();
+		List<Partido> partido = partidosServicios.listarPartidos();
 		model.put("canchas",cancha);
 		model.put("partidos",partido);
 		return new ModelAndView("vistas", model);
@@ -65,8 +68,7 @@ public class ControladorInicio {
 	
 	@RequestMapping(value="/unirse",method = { RequestMethod.GET })
 	public ModelAndView unirsePartido (@RequestParam("id") Long idPartido,ModelMap model, HttpServletRequest req, Loggin user){
-		Boolean resp = usuario.verificarUsuarioLogeado(user,req);
-		if(resp == false)
+		if(req.getSession().getAttribute("usuario") == null)
 			return new ModelAndView("loggin","command",new Loggin());
 		else
 			model.addAttribute("idPartido",idPartido);

@@ -7,7 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 public class Usuario {
@@ -19,6 +24,10 @@ public class Usuario {
 	private String password;
 	private String password2;
 	private String mail;
+	
+	@ManyToOne @JoinColumn(name = "id_eqipo")
+	@Cascade(value = CascadeType.ALL)
+	private Equipo equipo;
 	
 	public String getNombre() {
 		return nombre;
@@ -61,6 +70,12 @@ public class Usuario {
 	}
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+	public Equipo getEquipo() {
+		return equipo;
+	}
+	public void setEquipo(Equipo equipo) {
+		this.equipo = equipo;
 	}
 	
 

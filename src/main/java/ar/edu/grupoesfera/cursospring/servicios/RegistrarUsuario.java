@@ -7,6 +7,6 @@ import org.springframework.ui.ModelMap;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 public interface RegistrarUsuario {
-	public void crearUsuario(Usuario user, ModelMap model, HttpServletRequest req);
+	public void crearUsuario(Usuario user);
 
 }
