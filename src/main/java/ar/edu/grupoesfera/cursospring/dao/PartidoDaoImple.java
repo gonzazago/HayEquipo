@@ -32,8 +32,16 @@ public class PartidoDaoImple implements PartidoDao {
     	List<Partido> lista = session.createCriteria(Partido.class).add(Restrictions.eq("estado","Pendiente")).list();
     	return lista;
     	}
-
-	
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+	public List<Partido> getPartidoPorId(Long idUsuario){
+		final Session session = sessionFactory.getCurrentSession();
+    	List<Partido> lista = session.createCriteria(Partido.class)
+    								.add(Restrictions.eq("estado","Pendiente"))
+    								.add(Restrictions.eq("idUsuario",idUsuario))
+    								.list();
+    	return lista;
+		
+	}
 	
 
 }

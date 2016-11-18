@@ -9,6 +9,7 @@ public interface UsuarioDao {
 
 	public void cargarUsuario(Usuario user);
 	public List<Usuario> recuperarUsuario(Loggin Usuario);
+	public Usuario  recuperarUsuarioporNombreUsuario(Loggin user);
 	
 	
 }

@@ -22,6 +22,7 @@ import ar.edu.grupoesfera.cursospring.servicios.CanchasServicios;
 import ar.edu.grupoesfera.cursospring.servicios.PartidosServicios;
 import ar.edu.grupoesfera.cursospring.servicios.RegistrarUsuario;
 import ar.edu.grupoesfera.cursospring.servicios.UsuarioLoggin;
+import ar.edu.grupoesfera.cursospring.servicios.UsuarioServicios;
 import ar.edu.grupoesfera.cursospring.servicios.VerificarUsuario;
 
 @Controller
@@ -34,6 +35,9 @@ public class ControladorInicio {
 	
 	@Inject
 	private PartidosServicios partidosServicios;
+	
+	@Inject
+	private UsuarioServicios usuarioServicios;
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView modelarVista( ModelMap model,HttpServletRequest req) {
@@ -55,7 +59,10 @@ public class ControladorInicio {
 	}
 	
 	@RequestMapping(value="/perfil",method = { RequestMethod.GET })
-	public ModelAndView unirsePartido (ModelMap model, HttpServletRequest req, Loggin user){
+	public ModelAndView irAperfil (ModelMap model, HttpServletRequest req){
+		Long idUsuario= (Long) req.getSession().getAttribute("idUsuario");
+		List<Partido> lista = partidosServicios.listarPartidosPorId(idUsuario);
+		model.addAttribute("misPartidos", lista);
 		return new ModelAndView("perfil",model);
 		
 	}

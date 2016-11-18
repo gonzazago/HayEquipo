@@ -37,23 +37,18 @@ public class ControladorPerfil {
 	public ModelAndView registrarCancha(ModelMap model) {
 				return new ModelAndView("registrarCancha","command",new Cancha());
 	}
-	@RequestMapping(value = "/crearPartido", method = { RequestMethod.GET })
-	public ModelAndView registrarPartido(ModelMap model) {
-		Partido nuevoPartido = new Partido();
-		//List<Cancha>listadoCanchas = canchas.listarCanchas();
-		//model.put("listadoCanchas", listadoCanchas);
-		
-		model.put("partido", nuevoPartido);
-		return new ModelAndView("crearPartido","command",model);
-	}
-		
 	
-	@RequestMapping(value = "/partidoCreado", method = { RequestMethod.POST })
-	public ModelAndView partidoCreado(@ModelAttribute Partido partido,ModelMap model, HttpServletRequest req) {
-
-		partidoServicios.insertarPartido(partido);
-		return new ModelAndView("perfil", model);
+	@RequestMapping(value = "/crearPartido", method = { RequestMethod.GET })
+	public ModelAndView registrarPartido(ModelMap model, HttpServletRequest req) {
+		Partido nuevoPartido = new Partido();
+		Long idUsuario=(Long) req.getAttribute("idUsuario");
+		List<Cancha>listadoCanchas = canchas.listarCanchas();
+		model.put("idUsuario", idUsuario);
+		model.put("listadoCanchas",listadoCanchas);
+		model.put("partido", nuevoPartido);
+		return new ModelAndView("crearPartido","command",nuevoPartido);
 	}
+		
 	
 	@RequestMapping(value = "/modificarDatos", method = { RequestMethod.POST })
 	public ModelAndView modificarDatos(@ModelAttribute Usuario user,HttpServletRequest req) {

@@ -30,5 +30,11 @@ public class PartidosServiciosImple implements PartidosServicios {
 			return partidosDelDia;
 		
 	}
+	
+	public List<Partido>listarPartidosPorId(Long idUsuario){
+	
+	List<Partido>misPartidos=partidoDao.getPartidoPorId(idUsuario);
+	return misPartidos;
+	}
 
 }

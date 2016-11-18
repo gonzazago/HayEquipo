@@ -42,7 +42,7 @@
   			</div>
 		<div class="intro-unit">
 			<div class="separador">
-				<div class="encabezado"> <h1> Partidos del Dia</h1>	 </div>
+				<div class="encabezado"> <h1> Partidos del Dia usuario: ${idUsuario}</h1>	 </div>
 			</div>	
 			<a name="partidos"></a>
 			<table class="table table-hover">
@@ -63,7 +63,7 @@
 			  	<td>${partido.estado}</td>
 			  	<td>${partido.resultado}</td>
 			  	<td>
-			  		<a href="unirse?id=${idPartido}">Unirse a partido</a>
+			  		<a href="unirse?id=${partido.idPartido}">Unirse a partido</a>
 			  	</td>
 			  </tr>
 			  </c:forEach>

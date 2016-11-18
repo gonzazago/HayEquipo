@@ -17,7 +17,7 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 public class Usuario {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idUsuario;
+	private Long idUsuario;
 	private String nombre;
 	private String apellido;
 	private String nomUsuario;
@@ -65,10 +65,10 @@ public class Usuario {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public Integer getIdUsuario() {
+	public Long getIdUsuario() {
 		return idUsuario;
 	}
-	public void setIdUsuario(Integer idUsuario) {
+	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 	public Equipo getEquipo() {

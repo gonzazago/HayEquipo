@@ -9,5 +9,6 @@ public interface PartidoDao {
 	
 	public void insertarPartido(Partido partido);
 	public List<Partido> getPartidos();
+	public List<Partido> getPartidoPorId(Long idUsuario);
 
 }

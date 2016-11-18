@@ -1,5 +1,6 @@
 package ar.edu.grupoesfera.cursospring.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,9 +35,23 @@ public class UsuarioImpl implements UsuarioDao{
     			.add(Restrictions.eq("nomUsuario",usuario))
     			.add(Restrictions.eq("password",password)).list();
     	return userLoggin;
-    			
-    	
-    }
+    }	
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+   	public Usuario  recuperarUsuarioporNombreUsuario(Loggin user){
+   		final Session session = sessionFactory.getCurrentSession();
+   		String usuario = user.getUsuario();
+   		Usuario usuarioRecuperado = new Usuario();
+
+       	List<Usuario> userLoggin = session.createCriteria(Usuario.class)
+        			.add(Restrictions.eq("nomUsuario",usuario)).list();
+       	for(Iterator i = userLoggin.iterator(); i.hasNext();){
+       		 usuarioRecuperado = (Usuario) i.next();
+       	}
+       	
+       	return usuarioRecuperado;
+    		
+    }	
+    
 	
 
 }

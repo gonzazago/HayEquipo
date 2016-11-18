@@ -19,8 +19,8 @@ public class Partido {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idPartido;
-	@ManyToOne @JoinColumn(name = "id_cancha", nullable = false)
-	private Cancha cancha;
+	//@ManyToOne @JoinColumn(name = "id_cancha", nullable = false)
+	private String cancha;
 	private String nombreEquipo1;
 	private String nombreEquipo2;
 	private Integer cantJugadores;
@@ -28,7 +28,7 @@ public class Partido {
 	private String horarioPartido;
 	private String estado;
 	private String resultado;
-	
+	private Long idUsuario;
 	public Long getIdPartido() {
 		return idPartido;
 	}
@@ -78,11 +78,17 @@ public class Partido {
 	public void setResultado(String resultado) {
 		this.resultado = resultado;
 	}
-	public void setCancha(Cancha cancha) {
+	public void setCancha(String cancha) {
 		this.cancha = cancha;
 	}
-	public Cancha getCancha() {
+	public String getCancha() {
 		return cancha;
+	}
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	
 }

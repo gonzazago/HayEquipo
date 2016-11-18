@@ -42,7 +42,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 				    <a href="home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-				       Ir al Home
+				       Ir a inicio
 				     </a>
 				 </li>
 			</ul>

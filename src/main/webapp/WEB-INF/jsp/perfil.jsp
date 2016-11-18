@@ -31,17 +31,22 @@
 <div class="container-2">
 	<div class="row">
 		<div class="list-group col-xs-6 col-md-4">
-			 <a href="modificarDatos" class="list-group-item active">
+			 <a href="modificarDatos?id=${idUsuario}" class="list-group-item active">
     			Modificar Datos
   			</a>
-  			<a href="crearPartido" class="list-group-item">Crear Partido</a>
-  			<a href="registrarCancha" class="list-group-item">Crear Cancha</a>
-  			<a href="#pendientes" class="list-group-item">Crear Equipo</a>
-  			<a href="#unirseEquipo" class="list-group-item">Unirme a equipo</a>	
+  			<a href="crearPartido" class="list-group-item"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true">
+  				</span>Crear Partido
+  			</a>
+  			<a href="registrarCancha" class="list-group-item"> <span class="glyphicon glyphicon-plus-sign" aria-hidden="true">
+  				</span> Crear Cancha
+  			</a>
+			<!--<a href="#pendientes" class="list-group-item">Crear Equipo</a>
+  				<a href="#unirseEquipo" class="list-group-item">Unirme a equipo</a>
+  			-->	
 		</div>
 		<div class= "col-xs-12 col-sm-6 col-md-8">
 			<div class="separador">
-					<div class="encabezado"> <h1>Historial de Partidos</h1> </div>
+					<div class="encabezado"> <h1>Partidos Pendientes</h1> </div>
 				</div>	 	
 					<table class="table table-hover">
 			  				<th>Partido</th>
@@ -49,13 +54,17 @@
 			  				<th>Cancha</th>
 			  				<th>Estado</th>
 			  				<th>Resultado</th>
-			  			<tr>
-				  			<td>Partido Prueba</td>
-				  			<td>20:00 hs</td>
-					  		<td>Cancha Prueba</td>
-					  		<td>Terminado</td>
-			  				<td>Gano Equipo 1</td>			  				  	
-			  			</tr>
+			  		<tr>
+			  			<c:forEach items="${misPartidos}" var="partido">
+			  				<td>${partido.cancha}</td>
+			  				<td>${partido.horarioPartido}</td>
+			  				<td>${partido.nombreEquipo1}</td>
+			  				<td>${partido.nombreEquipo2}</td>
+			  				<td>${partido.fechaPartido}</td>
+			  				<td>${partido.estado}</td>
+			  				<td>${partido.resultado}</td>
+			  		</tr>
+			  			</c:forEach>
 					</table>
 				<div class="separador">
 					<div class="encabezado"> <h1> Partidos del Dia</h1>	 </div>

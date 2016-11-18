@@ -7,7 +7,7 @@ import org.springframework.ui.ModelMap;
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
-public interface RecuperarUsuario {
+public interface UsuarioServicios {
 	public Usuario buscarUsuario(Loggin user);
 
 }

@@ -8,5 +8,6 @@
 </head>
 <body>
  partidoId: ${idPartido}
+ usuarioId: ${idUsuario}
 </body>
 </html>
