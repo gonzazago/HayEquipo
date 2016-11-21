@@ -19,8 +19,7 @@ public class PruebaLoginController
 	
 	public void setPersonaService(PersonaService personaService)
 	{
-		this.personaService = personaService;
-		
+		this.personaService = personaService;		
 	}
 	
 	@RequestMapping(path="/loginPrueba", method = RequestMethod.POST)

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.grupoesfera.cursospring.dao.UsuarioDao;
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
+import ar.edu.grupoesfera.cursospring.servicios.PersonaService;
 import ar.edu.grupoesfera.cursospring.servicios.RegistrarUsuario;
 import ar.edu.grupoesfera.cursospring.servicios.UsuarioLoggin;
 import ar.edu.grupoesfera.cursospring.servicios.UsuarioServicios;
@@ -24,6 +25,15 @@ public class ControladorLoggin {
 	@Inject
 	private UsuarioServicios usuarioServicios;
 	
+	public void setUsuarioLoggin(UsuarioLoggin usuarioLoggin)
+	{
+		this.logginUsuario = usuarioLoggin;		
+	}
+	
+	public void setUsuarioServicios(UsuarioServicios usuarioServicios)
+	{
+		this.usuarioServicios = usuarioServicios;		
+	}
 	
 	@RequestMapping(value = "/inicioSesion", method = { RequestMethod.POST })
 	public ModelAndView validarUsuario(@ModelAttribute Loggin user, ModelMap model,HttpServletRequest req) {

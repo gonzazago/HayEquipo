@@ -39,6 +39,21 @@ public class ControladorInicio {
 	@Inject
 	private UsuarioServicios usuarioServicios;
 	
+	public void setCanchasServicios(CanchasServicios canchas)
+	{
+		this.canchas = canchas;		
+	}
+	
+	public void setPartidosServicios(PartidosServicios partidosServicios)
+	{
+		this.partidosServicios = partidosServicios;		
+	}
+	
+	public void setUsuarioServicios(UsuarioServicios usuarioServicios)
+	{
+		this.usuarioServicios = usuarioServicios;		
+	}
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView modelarVista( ModelMap model,HttpServletRequest req) {
 		List<Cancha> cancha =   canchas.listarCanchas();
@@ -75,12 +90,13 @@ public class ControladorInicio {
 	
 	@RequestMapping(value="/unirse",method = { RequestMethod.GET })
 	public ModelAndView unirsePartido (@RequestParam("id") Long idPartido,ModelMap model, HttpServletRequest req, Loggin user){
-		if(req.getSession().getAttribute("usuario") == null)
+		if(req.getSession().getAttribute("usuario") == null){
 			return new ModelAndView("loggin","command",new Loggin());
-		else
+		}
+		else{
 			model.addAttribute("idPartido",idPartido);
 			return new ModelAndView("partidoUnirse", model);
-		
+		}
 	}
 	
 
