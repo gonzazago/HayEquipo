@@ -62,7 +62,8 @@ public class ControladorInicio {
 	public ModelAndView irAperfil (ModelMap model, HttpServletRequest req){
 		Long idUsuario= (Long) req.getSession().getAttribute("idUsuario");
 		List<Partido> lista = partidosServicios.listarPartidosPorId(idUsuario);
-		model.addAttribute("misPartidos", lista);
+		//List<Partido> lista = usuarioServicios.misPartidos(idUsuario);
+		//model.addAttribute("misPartidos", lista);
 		return new ModelAndView("perfil",model);
 		
 	}
@@ -74,12 +75,13 @@ public class ControladorInicio {
 	}
 	
 	@RequestMapping(value="/unirse",method = { RequestMethod.GET })
-	public ModelAndView unirsePartido (@RequestParam("id") Long idPartido,ModelMap model, HttpServletRequest req, Loggin user){
+	public ModelAndView unirsePartido (@RequestParam("id") Long idPartido,ModelMap model, HttpServletRequest req){
+		Long idUsuario= (Long) req.getSession().getAttribute("idUsuario");
 		if(req.getSession().getAttribute("usuario") == null)
 			return new ModelAndView("loggin","command",new Loggin());
 		else
-			model.addAttribute("idPartido",idPartido);
-			return new ModelAndView("partidoUnirse", model);
+			partidosServicios.insertarJugador(idPartido, idUsuario);
+			return new ModelAndView("perfil", model);
 		
 	}
 	

@@ -1,12 +1,16 @@
 package ar.edu.grupoesfera.cursospring.modelo;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -29,6 +33,13 @@ public class Partido {
 	private String estado;
 	private String resultado;
 	private Long idUsuario;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@Cascade(value = CascadeType.ALL)
+	@JoinTable(name = "jugadores_partido", joinColumns ={@JoinColumn(name="idPartido",referencedColumnName="idPartido")},
+	inverseJoinColumns={@JoinColumn(name="idUsuario",referencedColumnName="idUsuario")})
+	private List<Usuario> jugadores = new LinkedList<Usuario>();
+	
 	public Long getIdPartido() {
 		return idPartido;
 	}
@@ -90,5 +101,15 @@ public class Partido {
 	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
+	public List<Usuario> getJugadores() {
+		return jugadores;
+	}
+	public void setJugadores(List<Usuario> jugadores) {
+		this.jugadores = jugadores;
+	}
+	
+	
+	
+	
 	
 }

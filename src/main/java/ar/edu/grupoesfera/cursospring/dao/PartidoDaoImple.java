@@ -1,5 +1,6 @@
 package ar.edu.grupoesfera.cursospring.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.grupoesfera.cursospring.modelo.Cancha;
 import ar.edu.grupoesfera.cursospring.modelo.Partido;
+import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 @Service
 public class PartidoDaoImple implements PartidoDao {
@@ -25,6 +27,13 @@ public class PartidoDaoImple implements PartidoDao {
     	final Session session = sessionFactory.getCurrentSession();
     	session.save(partido);
     }
+    
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+	public void insertarJugador(Partido partido){
+    	final Session session = sessionFactory.getCurrentSession();
+    	session.save(partido);
+    }
+    
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public List<Partido> getPartidos(){
@@ -33,15 +42,32 @@ public class PartidoDaoImple implements PartidoDao {
     	return lista;
     	}
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
-	public List<Partido> getPartidoPorId(Long idUsuario){
+	public List<Partido> getPartidoPorUsuario(Long idUsuario){
 		final Session session = sessionFactory.getCurrentSession();
     	List<Partido> lista = session.createCriteria(Partido.class)
-    								.add(Restrictions.eq("estado","Pendiente"))
-    								.add(Restrictions.eq("idUsuario",idUsuario))
-    								.list();
+    								 .createAlias("Usuario", "user")
+    								 .createAlias("jugadores_partido","jp")
+    								 .add(Restrictions.eq("user.idUsuario","jp.idUsuario")).list();
+    								
     	return lista;
 		
 	}
 	
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+    public Partido getPartidosPorId(Long idPartido){
+    	final Session session = sessionFactory.getCurrentSession();
+    	Partido partido = new Partido();
+    	
+    	List<Partido> lista = session.createCriteria(Partido.class)
+    							.add(Restrictions.eq("idPartido",idPartido)).list();
+    							
+    	
+    	
+    	for(Iterator i = lista.iterator(); i.hasNext();){
+    		partido = (Partido) i.next();
+      	}
+    	return partido;
+    	
+    }
 
 }

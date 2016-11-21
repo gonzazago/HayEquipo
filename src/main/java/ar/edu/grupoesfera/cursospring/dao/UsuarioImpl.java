@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
+import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 @Service("UsuarioDao")
@@ -50,8 +51,35 @@ public class UsuarioImpl implements UsuarioDao{
        	
        	return usuarioRecuperado;
     		
-    }	
+    }
     
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+   	public Usuario  recuperarUsuarioPorId(Long idUsuario){
+   		final Session session = sessionFactory.getCurrentSession();
+   		Usuario usuarioRecuperado = new Usuario();
+
+       	List<Usuario> userLoggin = session.createCriteria(Usuario.class)
+        			.add(Restrictions.eq("idUsuario",idUsuario)).list();
+       	for(Iterator i = userLoggin.iterator(); i.hasNext();){
+       		 usuarioRecuperado = (Usuario) i.next();
+       	}
+       	
+       	return usuarioRecuperado;
+    		
+    }
+
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+   	public List<Partido>  misPartidos(Long idUsuario){
+   		final Session session = sessionFactory.getCurrentSession();
+
+       	List<Partido> misPartidos = session.createCriteria(Partido.class)
+       				.createAlias("Usuario", "user")
+       				.createAlias("jugadores_partido","jp")
+        			.add(Restrictions.eq("user.idUsuario","jp.idUsuario")).list();
+       	
+       	return misPartidos;
+    		
+    }
 	
 
 }

@@ -1,11 +1,14 @@
 package ar.edu.grupoesfera.cursospring.servicios;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import ar.edu.grupoesfera.cursospring.dao.UsuarioDao;
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
+import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 @Service
@@ -17,5 +20,16 @@ public class UsuarioServiciosImple implements UsuarioServicios{
 		return usuarioEncontrado;
 	}
 	
+	public Usuario buscarUsuarioPorId(Long idUsuario){
+		
+		Usuario usuarioEncontrado = usuarioDao.recuperarUsuarioPorId(idUsuario);
+		return usuarioEncontrado;
+	}
+	
+	/*public List<Partido> misPartidos(Long idUsuario){
+		
+		List<Partido> misPartidos = usuarioDao.misPartidos(idUsuario);
+		return misPartidos;
+	}*/
 
 }
