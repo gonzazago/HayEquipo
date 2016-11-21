@@ -45,9 +45,8 @@ public class PartidoDaoImple implements PartidoDao {
 	public List<Partido> getPartidoPorUsuario(Long idUsuario){
 		final Session session = sessionFactory.getCurrentSession();
     	List<Partido> lista = session.createCriteria(Partido.class)
-    								 .createAlias("Usuario", "user")
     								 .createAlias("jugadores_partido","jp")
-    								 .add(Restrictions.eq("user.idUsuario","jp.idUsuario")).list();
+    								 .add(Restrictions.eq("idUsuario","jp.idUsuario")).list();
     								
     	return lista;
 		
