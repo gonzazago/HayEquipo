@@ -36,17 +36,17 @@ public class ControladorLoggin {
 	}
 	
 	@RequestMapping(value = "/inicioSesion", method = { RequestMethod.POST })
-	public ModelAndView validarUsuario(@ModelAttribute Loggin user, ModelMap model,HttpServletRequest req) {
+	public String validarUsuario(@ModelAttribute Loggin user, ModelMap model,HttpServletRequest req) {
 		
 		Usuario usuario = new Usuario();
 		if(logginUsuario.verficarUsuario(user) == false)
-			return new ModelAndView("loggin", "command", new Loggin());
+			return "redirect:/iniciarSesion";
 		
 		else{
 			usuario = usuarioServicios.buscarUsuario(user);
 			req.getSession().setAttribute("idUsuario", usuario.getIdUsuario());
 			req.getSession().setAttribute("usuario", usuario.getNomUsuario());
-			return new ModelAndView("vistas", model);
+			return "redirect:/home";
 		}
 			
 		  

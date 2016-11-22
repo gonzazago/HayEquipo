@@ -8,7 +8,8 @@ import ar.edu.grupoesfera.cursospring.modelo.Partido;
 public interface PartidoDao {
 	
 	public void insertarPartido(Partido partido);
+	public void insertarJugador (Partido partido);
 	public List<Partido> getPartidos();
-	public List<Partido> getPartidoPorId(Long idUsuario);
+	public Partido getPartidosPorId(Long idPartido);
 
 }

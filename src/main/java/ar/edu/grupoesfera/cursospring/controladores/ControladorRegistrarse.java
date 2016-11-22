@@ -20,13 +20,13 @@ public class ControladorRegistrarse {
 	private RegistrarUsuario registrarUsuario;
 	
 	@RequestMapping(value = "/registro", method = { RequestMethod.POST })
-	public ModelAndView crearUsuario(@ModelAttribute Usuario user,HttpServletRequest req) {
+	public String crearUsuario(@ModelAttribute Usuario user,HttpServletRequest req) {
 		ModelMap  model = new ModelMap();
 		registrarUsuario.crearUsuario(user);
 		req.getSession().setAttribute("idUsuario",user.getIdUsuario());
 		req.getSession().setAttribute("usuario",user.getNomUsuario());
 
-		return new ModelAndView("vistas", model);
+		return "redirect:/home";
 	}
 
 }

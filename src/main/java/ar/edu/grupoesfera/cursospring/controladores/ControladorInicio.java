@@ -2,6 +2,7 @@ package ar.edu.grupoesfera.cursospring.controladores;
 
 
 import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -58,8 +59,10 @@ public class ControladorInicio {
 	public ModelAndView modelarVista( ModelMap model,HttpServletRequest req) {
 		List<Cancha> cancha =   canchas.listarCanchas();
 		List<Partido> partido = partidosServicios.listarPartidos();
+		List<Usuario> usuario = usuarioServicios.listarUsuarios();
 		model.put("canchas",cancha);
 		model.put("partidos",partido);
+		model.put("usuarios",usuario);
 		return new ModelAndView("vistas", model);
 	}
 	
@@ -76,26 +79,28 @@ public class ControladorInicio {
 	@RequestMapping(value="/perfil",method = { RequestMethod.GET })
 	public ModelAndView irAperfil (ModelMap model, HttpServletRequest req){
 		Long idUsuario= (Long) req.getSession().getAttribute("idUsuario");
-		List<Partido> lista = partidosServicios.listarPartidosPorId(idUsuario);
+		Usuario usuario = usuarioServicios.buscarUsuarioPorId(idUsuario);
+		Set<Partido> lista = usuario.getPartidos();
 		model.addAttribute("misPartidos", lista);
 		return new ModelAndView("perfil",model);
 		
 	}
 	
 	@RequestMapping(value = "/logout", method = { RequestMethod.GET })
-	public ModelAndView cerrarSesion(HttpServletRequest session, ModelMap model) {
+	public String cerrarSesion(HttpServletRequest session, ModelMap model) {
 				session.getSession().invalidate();
-				return new ModelAndView("vistas",model);
+				return "redirect:/home";
 	}
 	
 	@RequestMapping(value="/unirse",method = { RequestMethod.GET })
-	public ModelAndView unirsePartido (@RequestParam("id") Long idPartido,ModelMap model, HttpServletRequest req, Loggin user){
+	public String unirsePartido (@RequestParam("id") Long idPartido,ModelMap model, HttpServletRequest req){
+		Long idUsuario= (Long) req.getSession().getAttribute("idUsuario");
 		if(req.getSession().getAttribute("usuario") == null){
-			return new ModelAndView("loggin","command",new Loggin());
+			return "redirect:/iniciarSesion";
 		}
 		else{
-			model.addAttribute("idPartido",idPartido);
-			return new ModelAndView("partidoUnirse", model);
+			partidosServicios.insertarJugador(idPartido, idUsuario);
+		return "redirect:/perfil";
 		}
 	}
 	

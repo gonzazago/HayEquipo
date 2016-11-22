@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.grupoesfera.cursospring.modelo.Loggin;
+import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 @Service("UsuarioDao")
@@ -50,8 +51,32 @@ public class UsuarioImpl implements UsuarioDao{
        	
        	return usuarioRecuperado;
     		
-    }	
+    }
     
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+   	public Usuario  recuperarUsuarioPorId(Long idUsuario){
+   		final Session session = sessionFactory.getCurrentSession();
+   		Usuario usuarioRecuperado = new Usuario();
+
+       	List<Usuario> userLoggin = session.createCriteria(Usuario.class)
+        			.add(Restrictions.eq("idUsuario",idUsuario)).list();
+       	for(Iterator i = userLoggin.iterator(); i.hasNext();){
+       		 usuarioRecuperado = (Usuario) i.next();
+       	}
+       	
+       	return usuarioRecuperado;
+    		
+    }
+
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+   	public List<Usuario>  listarUsuarios(){
+   		final Session session = sessionFactory.getCurrentSession();
+
+       	List<Usuario> usuarios = session.createCriteria(Usuario.class).list();
+       	
+       	return usuarios;
+    		
+    }
 	
 
 }

@@ -10,17 +10,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
 import ar.edu.grupoesfera.cursospring.dao.PartidoDao;
+import ar.edu.grupoesfera.cursospring.dao.UsuarioDao;
 import ar.edu.grupoesfera.cursospring.modelo.Cancha;
 import ar.edu.grupoesfera.cursospring.modelo.Partido;
+import ar.edu.grupoesfera.cursospring.modelo.Usuario;
 
 @Service
 public class PartidosServiciosImple implements PartidosServicios {
 
 	@Inject
 	private PartidoDao partidoDao;
+	@Inject
+	private UsuarioServicios usuariosServicios;
+	@Inject
+	private UsuarioDao usuarioDao;
 	
-	public void insertarPartido(Partido partido){
+	public void insertarPartido(Partido partido, Long idUsuario){
 	
+		Usuario user = usuariosServicios.buscarUsuarioPorId(idUsuario);
+		partido.getJugadores().add(user);
+		user.getPartidos().add(partido);
 		partidoDao.insertarPartido(partido);
 	}
 	public List<Partido> listarPartidos(){
@@ -31,10 +40,15 @@ public class PartidosServiciosImple implements PartidosServicios {
 		
 	}
 	
-	public List<Partido>listarPartidosPorId(Long idUsuario){
+	public void insertarJugador(Long idPartido, Long idUsuario){
 	
-	List<Partido>misPartidos=partidoDao.getPartidoPorId(idUsuario);
-	return misPartidos;
+	Partido partido = partidoDao.getPartidosPorId(idPartido);
+	Usuario user = usuariosServicios.buscarUsuarioPorId(idUsuario);
+	user.getPartidos().add(partido);
+	partido.getJugadores().add(user);
+    partidoDao.insertarJugador(partido);
+		
+		
 	}
 
 }

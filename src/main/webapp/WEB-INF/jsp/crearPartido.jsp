@@ -34,7 +34,6 @@
 	
 		 <div class="col-md-6 col-md-offset-3">
 			<form:form action="partido" method="POST" ModelAttribute="Partido" role="form">
-				<form:hidden path="idUsuario" value="${idUsuario}"/>
 					<div class="form-group">
 						<form:select class="form-control" path="cancha">
  							<form:option value="NONE" label="Selecciona la Cancha"/>
