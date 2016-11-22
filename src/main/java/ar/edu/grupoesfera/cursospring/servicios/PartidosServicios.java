@@ -14,6 +14,5 @@ public interface PartidosServicios {
 	public void insertarPartido(Partido partido, Long idUsuario);
 	public void insertarJugador(Long idPartido, Long idUsuario);
     public List<Partido>listarPartidos();
-    public List<Partido>listarPartidosPorId(Long idUsuario);
 
 }

@@ -50,21 +50,5 @@ public class ControladorPerfil {
 	}
 		
 	
-	@RequestMapping(value = "/modificarDatos", method = { RequestMethod.POST })
-	public ModelAndView modificarDatos(@ModelAttribute Usuario user,HttpServletRequest req) {
-		
-		Map<String, Object> miModelo = new HashMap<String, Object>();
-		
-		miModelo.put("nombre", user.getNombre());
-		miModelo.put("apellido", user.getApellido());
-		miModelo.put("nomUsuario", user.getNomUsuario());
-		miModelo.put("password", user.getPassword());
-		miModelo.put("password2", user.getPassword2());
-		miModelo.put("mail", user.getMail());
-		ModelAndView model= new ModelAndView();
-		model.setViewName("modificarDatos");
-		model.addObject(miModelo);
-		return model;
-		
-	}
+	
 }

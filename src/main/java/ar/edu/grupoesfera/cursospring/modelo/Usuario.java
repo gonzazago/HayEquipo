@@ -1,8 +1,10 @@
 package ar.edu.grupoesfera.cursospring.modelo;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +33,7 @@ public class Usuario {
 	private String mail;
 	
 	@ManyToMany( fetch = FetchType.EAGER, mappedBy="jugadores")
-	private List<Partido> partidos = new LinkedList<Partido>();
+	private Set<Partido> partidos = new HashSet<Partido>();
 	
 	@ManyToOne @JoinColumn(name = "id_eqipo")
 	@Cascade(value = CascadeType.ALL)
@@ -87,13 +89,12 @@ public class Usuario {
 	public void setEquipo(Equipo equipo) {
 		this.equipo = equipo;
 	}
-	public List<Partido> getPartidos() {
+	public Set<Partido> getPartidos() {
 		return partidos;
 	}
-	public void setPartidos(List<Partido> partidos) {
+	public void setPartidos(Set<Partido> partidos) {
 		this.partidos = partidos;
 	}
-	
 	
 
 }

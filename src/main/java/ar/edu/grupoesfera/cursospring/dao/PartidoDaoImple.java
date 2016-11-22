@@ -38,20 +38,11 @@ public class PartidoDaoImple implements PartidoDao {
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public List<Partido> getPartidos(){
     	final Session session = sessionFactory.getCurrentSession();
-    	List<Partido> lista = session.createCriteria(Partido.class).add(Restrictions.eq("estado","Pendiente")).list();
+    	List<Partido> lista = session.createCriteria(Partido.class).list();
     	return lista;
     	}
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
-	public List<Partido> getPartidoPorUsuario(Long idUsuario){
-		final Session session = sessionFactory.getCurrentSession();
-    	List<Partido> lista = session.createCriteria(Partido.class)
-    								 .createAlias("jugadores_partido","jp")
-    								 .add(Restrictions.eq("idUsuario","jp.idUsuario")).list();
-    								
-    	return lista;
-		
-	}
-	
+    
+
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public Partido getPartidosPorId(Long idPartido){
     	final Session session = sessionFactory.getCurrentSession();

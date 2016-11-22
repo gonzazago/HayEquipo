@@ -12,7 +12,7 @@ public interface UsuarioDao {
 	public List<Usuario> recuperarUsuario(Loggin Usuario);
 	public Usuario  recuperarUsuarioporNombreUsuario(Loggin user);
 	public Usuario recuperarUsuarioPorId(Long idUsuario);
-	public List<Partido> misPartidos(Long idUsuario);
+	public List<Usuario> listarUsuarios();
 	
 	
 	

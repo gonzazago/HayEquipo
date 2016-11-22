@@ -23,12 +23,12 @@ public class ControladorPartido {
 	private UsuarioServicios usuarioServicios;
 	
 	@RequestMapping(value = "/partido", method = { RequestMethod.POST })
-	public ModelAndView partidoCreado(@ModelAttribute Partido partido, HttpServletRequest req) {
+	public String partidoCreado(@ModelAttribute Partido partido, HttpServletRequest req) {
 		ModelMap  model = new ModelMap();
 		partido.setEstado("Pendiente");
 		Long idUsuario = (Long) req.getSession().getAttribute("idUsuario");
 		partidoServicios.insertarPartido(partido,idUsuario);
-		return new ModelAndView("perfil", model);
+		return "redirect:/perfil";
 	}
 
 }

@@ -42,7 +42,7 @@
   			</div>
 		<div class="intro-unit">
 			<div class="separador">
-				<div class="encabezado"> <h1> Partidos del Dia usuario: ${idUsuario}</h1>	 </div>
+				<div class="encabezado"> <h1> Partidos del Dia</h1>	 </div>
 			</div>	
 			<a name="partidos"></a>
 			<table class="table table-hover">
@@ -75,17 +75,14 @@
 			</div>	
 			<a name="jugadores"></a>
 			<table class="table table-hover">
-			  <th>Partido</th>
-			  <th>Horario</th>
-			  <th>Cancha</th>
-			  <th>Estado</th>
-			  <th>Resultado</th>
+			  <th>Nombre</th>
+			  <th>Nombre Usuario</th>
 			  <tr>
-			  	<td>Partido Prueba</td>
-			  	<td>20:00 hs</td>
-			  	<td>Cancha Prueba</td>
-			  	<td>Terminado</td>
-			  	<td>Gano Equipo 1</td>			  				  	
+			  	<c:forEach items="${usuarios}" var="usuario">
+			  	<td>${usuario.nombre}</td>
+			  	<td>${usuario.nomUsuario}</td>
+			  </tr>
+			  </c:forEach>			  				  	
 			  </tr>
 			</table>
 			<div class="separador">
@@ -112,28 +109,6 @@
 			  	</td>
 			  </tr>
 			  </c:forEach>
-			</table>
-		<div class="separador">
-				<div class="encabezado"> <h1>Equipos</h1> </div>
-			</div>	
-			<a name="equipos"></a>
-			<table class="table table-hover">
-			  <th>Partido</th>
-			  <th>Horario</th>
-			  <th>Cancha</th>
-			  <th>Estado</th>
-			  <th>Resultado</th>
-			  <tr>
-			  	<td>${partido }</td>
-			  	<td>20:00 hs</td>
-			  	<td>Cancha Prueba</td>
-			  	<td>Terminado</td>
-			  	<td>Gano Equipo 1</td>
-			  	<td>
-			  		<a href="unirse?id=${idEquipo}">Ver Equipo</a>
-			  	</td>
-			  				  	
-			  </tr>
 			</table>
 		</div>
 

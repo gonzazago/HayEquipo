@@ -10,7 +10,6 @@ public interface PartidoDao {
 	public void insertarPartido(Partido partido);
 	public void insertarJugador (Partido partido);
 	public List<Partido> getPartidos();
-	public List<Partido> getPartidoPorUsuario(Long idUsuario); 
 	public Partido getPartidosPorId(Long idPartido);
 
 }

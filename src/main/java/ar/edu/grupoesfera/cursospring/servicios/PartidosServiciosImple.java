@@ -22,7 +22,8 @@ public class PartidosServiciosImple implements PartidosServicios {
 	private PartidoDao partidoDao;
 	@Inject
 	private UsuarioServicios usuariosServicios;
-	
+	@Inject
+	private UsuarioDao usuarioDao;
 	
 	public void insertarPartido(Partido partido, Long idUsuario){
 	
@@ -39,19 +40,13 @@ public class PartidosServiciosImple implements PartidosServicios {
 		
 	}
 	
-	public List<Partido>listarPartidosPorId(Long idUsuario){
-	
-	List<Partido>misPartidos=partidoDao.getPartidoPorUsuario(idUsuario);
-	return misPartidos;
-	}
-	
 	public void insertarJugador(Long idPartido, Long idUsuario){
 	
 	Partido partido = partidoDao.getPartidosPorId(idPartido);
 	Usuario user = usuariosServicios.buscarUsuarioPorId(idUsuario);
-	partido.getJugadores().add(user);
 	user.getPartidos().add(partido);
-	partidoDao.insertarJugador(partido);
+	partido.getJugadores().add(user);
+    partidoDao.insertarJugador(partido);
 		
 		
 	}

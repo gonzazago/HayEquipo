@@ -22,9 +22,9 @@ public class ControladorCancha {
 	@Inject
 	private CanchasServicios canchaServicios;
 	@RequestMapping(value = "/cancha", method = { RequestMethod.POST })
-	public ModelAndView crearCancha(@ModelAttribute Cancha cancha) {
+	public String crearCancha(@ModelAttribute Cancha cancha) {
 		
 		canchaServicios.registrarCancha(cancha);
-		return new ModelAndView("perfil");
+		return "redirect:/perfil";
 	}
 }

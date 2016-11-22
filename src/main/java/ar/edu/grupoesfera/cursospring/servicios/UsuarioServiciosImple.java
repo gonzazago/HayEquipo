@@ -26,10 +26,10 @@ public class UsuarioServiciosImple implements UsuarioServicios{
 		return usuarioEncontrado;
 	}
 	
-	/*public List<Partido> misPartidos(Long idUsuario){
+	public List<Usuario> listarUsuarios(){
 		
-		List<Partido> misPartidos = usuarioDao.misPartidos(idUsuario);
-		return misPartidos;
-	}*/
+		List<Usuario> usuarios = usuarioDao.listarUsuarios();
+		return usuarios;
+	}
 
 }

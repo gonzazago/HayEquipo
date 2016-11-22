@@ -1,7 +1,9 @@
 package ar.edu.grupoesfera.cursospring.modelo;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +25,6 @@ public class Partido {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idPartido;
-	//@ManyToOne @JoinColumn(name = "id_cancha", nullable = false)
 	private String cancha;
 	private String nombreEquipo1;
 	private String nombreEquipo2;
@@ -32,13 +33,12 @@ public class Partido {
 	private String horarioPartido;
 	private String estado;
 	private String resultado;
-	private Long idUsuario;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@Cascade(value = CascadeType.ALL)
 	@JoinTable(name = "jugadores_partido", joinColumns ={@JoinColumn(name="idPartido",referencedColumnName="idPartido")},
 	inverseJoinColumns={@JoinColumn(name="idUsuario",referencedColumnName="idUsuario")})
-	private List<Usuario> jugadores = new LinkedList<Usuario>();
+	private Set<Usuario> jugadores = new HashSet<Usuario>();
 	
 	public Long getIdPartido() {
 		return idPartido;
@@ -95,21 +95,12 @@ public class Partido {
 	public String getCancha() {
 		return cancha;
 	}
-	public Long getIdUsuario() {
-		return idUsuario;
-	}
-	public void setIdUsuario(Long idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-	public List<Usuario> getJugadores() {
+	public Set<Usuario> getJugadores() {
 		return jugadores;
 	}
-	public void setJugadores(List<Usuario> jugadores) {
+	public void setJugadores(Set<Usuario> jugadores) {
 		this.jugadores = jugadores;
 	}
-	
-	
-	
 	
 	
 }

@@ -69,15 +69,12 @@ public class UsuarioImpl implements UsuarioDao{
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
-   	public List<Partido>  misPartidos(Long idUsuario){
+   	public List<Usuario>  listarUsuarios(){
    		final Session session = sessionFactory.getCurrentSession();
 
-       	List<Partido> misPartidos = session.createCriteria(Partido.class)
-       				.createAlias("Usuario", "user")
-       				.createAlias("jugadores_partido","jp")
-        			.add(Restrictions.eq("user.idUsuario","jp.idUsuario")).list();
+       	List<Usuario> usuarios = session.createCriteria(Usuario.class).list();
        	
-       	return misPartidos;
+       	return usuarios;
     		
     }
 	
