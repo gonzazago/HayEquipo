@@ -31,8 +31,8 @@ public class ControladorLogginTest {
 		
 		when(usuarioLogginMock.verficarUsuario(logginMock)).thenReturn(false);
 		controlador.setUsuarioLoggin(usuarioLogginMock);		
-		ModelAndView map = controlador.validarUsuario(logginMock, modelMapMock, requestMock);		
-		assertThat(map.getViewName()).isEqualTo("loggin");
+		String map = controlador.validarUsuario(logginMock, modelMapMock, requestMock);		
+		assertThat(map).isEqualTo("redirect:/iniciarSesion");
 	}
 	
 	/*@Test

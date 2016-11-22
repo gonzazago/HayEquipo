@@ -27,9 +27,9 @@ public class ControladorInicioTest {
 		
 		when(requestMock.getSession().getAttribute("usuario")).thenReturn(null);
 		
-		ModelAndView map = controlador.unirsePartido(anyLong(), modelMock, requestMock, logginMock);
+		String map = controlador.unirsePartido(anyLong(), modelMock, requestMock);
 		
-		assertThat(map.getViewName()).isEqualTo("loggin");
+		assertThat(map).isEqualTo("redirect:/iniciarSesion");
 	}
 	
 	/*@Test
