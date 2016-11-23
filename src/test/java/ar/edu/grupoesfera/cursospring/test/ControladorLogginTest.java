@@ -38,22 +38,15 @@ public class ControladorLogginTest {
 	/*@Test
 	public void validarUsuarioConUsuarioQueSiExista() {
 		ControladorLoggin controlador = new ControladorLoggin();
-		HttpServletRequest requestMock = mock(HttpServletRequest.class);
-		//HttpSession httpMock = mock(HttpSession.class);
-		UsuarioServicios usuarioServiciosMock = mock(UsuarioServicios.class);
+		HttpServletRequest requestMock = mock(HttpServletRequest.class);		
 		UsuarioLoggin usuarioLogginMock = mock(UsuarioLoggin.class);
 		Loggin logginMock = mock(Loggin.class);
 		ModelMap modelMapMock = mock(ModelMap.class);
-		Usuario usuario = new Usuario();
-		usuario.setIdUsuario((long) 1);
-		usuario.setNomUsuario("Usuario");
-		//when(requestMock.getSession()).thenReturn(httpMock);
-		when(usuarioLogginMock.verficarUsuario(logginMock)).thenReturn(true);
-		when(usuarioServiciosMock.buscarUsuario(logginMock)).thenReturn(usuario);
-		controlador.setUsuarioServicios(usuarioServiciosMock);		
-		controlador.setUsuarioLoggin(usuarioLogginMock);	
-		ModelAndView map = controlador.validarUsuario(logginMock, modelMapMock, requestMock);		
-		assertThat(map.getViewName()).isEqualTo("vistas");
+		
+		when(usuarioLogginMock.verficarUsuario(logginMock)).thenReturn(false);
+		controlador.setUsuarioLoggin(usuarioLogginMock);		
+		String map = controlador.validarUsuario(logginMock, modelMapMock, requestMock);		
+		assertThat(map).isEqualTo("redirect:/iniciarSesion");
 	}*/
 
 }
