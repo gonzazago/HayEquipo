@@ -14,6 +14,7 @@
 
 <!-- Estilos Propios -->
 <link href="css/estilos.css" rel="stylesheet">
+<link href="css/footer.css" rel="stylesheet">
 <link href="css/parallax.css" rel="stylesheet">
 <link rel="stylesheet" href="css/example.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -26,8 +27,8 @@
 <script src="js/jquery.slides.min.js"></script>
 
 </head>
-<body class="cuerpo">
-<jsp:include page="header.jsp" />
+<body class="cuerpo-1">
+<jsp:include page="headerUsuario.jsp" />
 <div class="container-2">
 	<div class="row">
 				 <div class="col-md-6 col-md-offset-3">
@@ -71,5 +72,6 @@
 		</div>
 	</div>
 </div>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

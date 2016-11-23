@@ -1,6 +1,8 @@
 package ar.edu.grupoesfera.cursospring.controladores;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -81,7 +83,9 @@ public class ControladorInicio {
 		Long idUsuario= (Long) req.getSession().getAttribute("idUsuario");
 		Usuario usuario = usuarioServicios.buscarUsuarioPorId(idUsuario);
 		Set<Partido> lista = usuario.getPartidos();
+		List<Partido> lista2 = partidosServicios.partidoHistorial();
 		model.addAttribute("misPartidos", lista);
+		model.addAttribute("partidosAnteriores", lista2);
 		return new ModelAndView("perfil",model);
 		
 	}

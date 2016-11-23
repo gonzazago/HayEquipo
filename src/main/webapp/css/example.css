@@ -1638,7 +1638,7 @@ body {
   background: #DDE3E3;
   -webkit-font-smoothing: antialiased;
   font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #DDE3E3;
+  color: #7A8080;
 }
 
 .nav {
@@ -1713,7 +1713,7 @@ small {
 }
 
 a:link, a:visited {
-    color: #d22929;
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
 }

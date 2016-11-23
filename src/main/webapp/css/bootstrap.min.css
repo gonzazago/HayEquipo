@@ -1150,7 +1150,8 @@ hr {
 	font-size:12px
 }
 p {
-	margin:0 0 10px
+	margin:0 0 10px;
+	color: #fff;
 }
 .lead {
 	margin-bottom:20px;
@@ -2074,7 +2075,7 @@ pre code {
 	}
 }
 table {
-	background:rgba(24,8,33,.9);
+	background:rgba(11, 11, 11, 0.9);
 	color:#fff;
 	box-shadow:0 5px 5px 3px rgba(0, 0, 0, 0.25);
 }
@@ -4645,7 +4646,8 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:focus,a.list-gro
 	box-shadow:0 1px 1px rgba(0,0,0,.05)
 }
 .panel-body {
-	padding:15px
+	padding:15px;
+	background-color: #000;
 }
 .panel-heading {
 	padding:10px 15px;
@@ -4782,7 +4784,8 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:focus,a.list-gro
 	border-bottom:1px solid #ddd
 }
 .panel-default {
-	border-color:#ddd
+	border-color:#ddd;
+	margin-top: 50px;
 }
 .panel-default>.panel-heading {
 	color:#333;

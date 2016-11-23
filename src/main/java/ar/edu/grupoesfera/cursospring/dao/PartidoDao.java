@@ -11,5 +11,6 @@ public interface PartidoDao {
 	public void insertarJugador (Partido partido);
 	public List<Partido> getPartidos();
 	public Partido getPartidosPorId(Long idPartido);
+	public List<Partido> partidosHistorial(String fecha);
 
 }
