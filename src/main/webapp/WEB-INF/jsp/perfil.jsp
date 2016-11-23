@@ -14,6 +14,7 @@
 
 <!-- Estilos Propios -->
 <link href="css/estilos.css" rel="stylesheet">
+<link href="css/footer.css" rel="stylesheet">
 <link href="css/parallax.css" rel="stylesheet">
 <link rel="stylesheet" href="css/example.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -27,7 +28,7 @@
 
 </head>
 <body class="cuerpo">
-<jsp:include page="header.jsp" />
+<jsp:include page="headerUsuario.jsp" />
 <div class="container-2">
 	<div class="row">
 		<div class="list-group col-xs-6 col-md-4">
@@ -46,28 +47,28 @@
 		</div>
 		<div class= "col-xs-12 col-sm-6 col-md-8">
 			<div class="separador">
-					<div class="encabezado"> <h1>Partidos Pendientes</h1> </div>
+					<div class="encabezado"> <h1>Partidos del Dia</h1> </div>
 				</div>	 	
 					<table class="table table-hover">
-			  				<th>Partido</th>
-			  				<th>Horario</th>
 			  				<th>Cancha</th>
+			  				<th>Equipo Local</th>
+			  				<th>Equipo Visitante</th>
+			  				<th>Fecha</th>
+			  				<th>Horario</th>
 			  				<th>Estado</th>
-			  				<th>Resultado</th>
 			  		<tr>
 			  			<c:forEach items="${misPartidos}" var="partido">
 			  				<td>${partido.cancha}</td>
-			  				<td>${partido.horarioPartido}</td>
 			  				<td>${partido.nombreEquipo1}</td>
 			  				<td>${partido.nombreEquipo2}</td>
 			  				<td>${partido.fechaPartido}</td>
+			  				<td>${partido.horarioPartido}</td>
 			  				<td>${partido.estado}</td>
-			  				<td>${partido.resultado}</td>
 			  		</tr>
 			  			</c:forEach>
 					</table>
 				<div class="separador">
-					<div class="encabezado"> <h1> Partidos del Dia</h1>	 </div>
+					<div class="encabezado"> <h1> Historial de Partidos</h1>	 </div>
 				</div>	
 					<table class="table table-hover">
 			  				<th>Partido</th>
@@ -76,17 +77,20 @@
 			  				<th>Estado</th>
 			  				<th>Resultado</th>
 			  			<tr>
-				  			<td>Partido Prueba</td>
-				  			<td>20:00 hs</td>
-					  		<td>Cancha Prueba</td>
-					  		<td>Terminado</td>
-			  				<td>Gano Equipo 1</td>			  				  	
+			  				<c:forEach items="${partidosAnteriores}" var="partido">
+			  					<td>${partido.cancha}</td>
+			  					<td>${partido.nombreEquipo1}</td>
+			  					<td>${partido.nombreEquipo2}</td>
+			  					<td>${partido.fechaPartido}</td>
+			  					<td>${partido.horarioPartido}</td>
+			  					<td>${partido.resultado}</td>
 			  			</tr>
+			  				</c:forEach>
 					</table>
 			</div>
 	</div>
 </div>
 
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

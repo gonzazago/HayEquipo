@@ -1,5 +1,7 @@
 package ar.edu.grupoesfera.cursospring.servicios;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -49,6 +51,14 @@ public class PartidosServiciosImple implements PartidosServicios {
     partidoDao.insertarJugador(partido);
 		
 		
+	}
+	@Override
+	public List<Partido> partidoHistorial() {
+		Date fecha = new Date();
+		SimpleDateFormat dmaFormat = new SimpleDateFormat("dd/yy/yyyy");
+		String Fecha = dmaFormat.format(fecha);
+		List<Partido> lista = partidoDao.partidosHistorial(Fecha);
+		return lista;
 	}
 
 }

@@ -14,6 +14,7 @@
 
 <!-- Estilos Propios -->
 <link href="css/estilos.css" rel="stylesheet">
+<link href="css/footer.css" rel="stylesheet">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!-- Slider -->
@@ -89,6 +90,6 @@
 			</div>
 		</div>
 	
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

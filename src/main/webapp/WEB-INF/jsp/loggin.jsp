@@ -16,6 +16,8 @@
 
 <!-- Estilos Propios -->
 <link href="css/estilos.css" rel="stylesheet">
+<link href="css/parallax.css" rel="stylesheet">
+<script src="js/parallax.js"></script>
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!-- Slider -->
@@ -24,7 +26,7 @@
 <script src="js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<body class="cuerpo-3">
 
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
@@ -73,5 +75,6 @@
     <p class="text-center">Si no tienes usuarios puedes registrarte haciendo click <a href="registrarse">aqui</a></p>
   </div>
 </div>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

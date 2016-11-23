@@ -27,8 +27,8 @@
 
 
 </head>
-<body class="cuerpo">
-<jsp:include page="header.jsp" />
+<body class="cuerpo-2">
+<jsp:include page="headerUsuario.jsp" />
 
 	<div class="row">
 	

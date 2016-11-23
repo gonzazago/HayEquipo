@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -38,7 +40,10 @@ public class PartidoDaoImple implements PartidoDao {
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public List<Partido> getPartidos(){
     	final Session session = sessionFactory.getCurrentSession();
-    	List<Partido> lista = session.createCriteria(Partido.class).list();
+    	List<Partido> lista = session.createCriteria(Partido.class)
+    							.setFetchMode("jugadores_partidos",FetchMode.JOIN)
+    							.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+    							.list();
     	return lista;
     	}
     
@@ -59,5 +64,13 @@ public class PartidoDaoImple implements PartidoDao {
     	return partido;
     	
     }
+    
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+    public List<Partido> partidosHistorial(String fecha){
+    	final Session session = sessionFactory.getCurrentSession();
+    	List<Partido> lista = session.createCriteria(Partido.class)
+    							.add(Restrictions.lt("fechaPartido",fecha)).list();
+    	return lista;
+    	}
 
 }
