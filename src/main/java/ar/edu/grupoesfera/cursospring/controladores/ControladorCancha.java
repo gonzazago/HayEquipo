@@ -21,6 +21,11 @@ import ar.edu.grupoesfera.cursospring.servicios.RegistrarUsuario;
 public class ControladorCancha {
 	@Inject
 	private CanchasServicios canchaServicios;
+	
+	public void setCanchasServicios(CanchasServicios canchas){
+		this.canchaServicios = canchas;
+	}
+	
 	@RequestMapping(value = "/cancha", method = { RequestMethod.POST })
 	public String crearCancha(@ModelAttribute Cancha cancha) {
 		

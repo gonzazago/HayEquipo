@@ -19,6 +19,10 @@ public class ControladorPartido {
 	@Inject 
 	private PartidosServicios partidoServicios;
 	
+	public void setPartidosServicios(PartidosServicios partidos){
+		this.partidoServicios = partidos;
+	}
+	
 	@Inject
 	private UsuarioServicios usuarioServicios;
 	
