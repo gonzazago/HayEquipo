@@ -13,5 +13,6 @@ public interface CanchasServicios {
 	
 	public void registrarCancha(Cancha cancha);
 	public List<Cancha> listarCanchas();
+	public List<Cancha> buscarCanchas(String localidad);
 
 }

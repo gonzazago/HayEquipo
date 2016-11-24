@@ -8,5 +8,6 @@ public interface CanchaDao {
 	public void insertarCancha(Cancha cancha);
 
 	public List<Cancha> getCanchas();
+	public List<Cancha>getCanchasPorLocalidad(String localidad);
 
 }

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,14 @@ public class CanchaDaoImple implements CanchaDao{
     public List<Cancha> getCanchas(){
     	final Session session = sessionFactory.getCurrentSession();
     	List<Cancha> lista = session.createCriteria(Cancha.class).list();
+    	return lista;
+    }
+    
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
+    public List<Cancha>getCanchasPorLocalidad(String localidad){
+    	final Session session = sessionFactory.getCurrentSession();
+    	List<Cancha> lista = session.createCriteria(Cancha.class)
+    								.add(Restrictions.eq("localidad",localidad)).list();
     	return lista;
     }
 }

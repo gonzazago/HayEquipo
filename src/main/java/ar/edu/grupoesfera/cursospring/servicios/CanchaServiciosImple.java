@@ -29,5 +29,12 @@ public class CanchaServiciosImple implements CanchasServicios {
 		return canchas;
 	}
 	
+	public List<Cancha>buscarCanchas(String localidad){
+		
+		List<Cancha>canchas=canchaDao.getCanchasPorLocalidad(localidad);
+	
+		return canchas;
+	}
+	
 
 }

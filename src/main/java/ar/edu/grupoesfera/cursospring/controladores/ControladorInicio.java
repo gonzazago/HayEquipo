@@ -108,5 +108,15 @@ public class ControladorInicio {
 		}
 	}
 	
+	@RequestMapping(value="/busquedad",method = { RequestMethod.GET })
+	public ModelAndView buscarCancha (@RequestParam("localidad") String localidad){
+		ModelMap model = new ModelMap();
+		List<Cancha> cancha = canchas.buscarCanchas(localidad);
+		Integer resultado = cancha.size();
+		model.addAttribute("canchas", cancha);
+		model.addAttribute("devueltos", resultado);
+		return new ModelAndView("busquedad",model);
+	}
+	
 
 }
