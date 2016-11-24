@@ -19,15 +19,15 @@
 				<li><a href="#canchas">Canchas</a></li>
 			</ul>
 				
-				<form:form class="navbar-form navbar-left"action="busquedad" method="GET" ModelAttribute="Cancha" role="form">
+				<!-- <form:form class="navbar-form navbar-left"action="busquedad" method="GET" ModelAttribute="Cancha" role="form">
 					<div class="form-group">
 						<form:input type="text" class="col-md-6 form-control" patch ="localidad"
 								placeholder="Buscar Canchas por localidad.."/>
 					</div>
-					<button type="submit" class="btn btn-default">
+					<form:input type="submit"/>
 						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-					</button>
-				</form:form>
+					
+				</form:form> -->
 			<ul class="nav navbar-nav">
 				<li><a href="#partidos">Jugadores</a></li>
 				<li><a href="#equipos">Equipos</a></li>

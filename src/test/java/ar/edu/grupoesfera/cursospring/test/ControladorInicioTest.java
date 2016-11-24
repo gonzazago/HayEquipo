@@ -30,7 +30,7 @@ public class ControladorInicioTest {
 		when(httpMock.getAttribute("idUsuario")).thenReturn((long)1);
 		when(httpMock.getAttribute("usuario")).thenReturn(null);
 		
-		String map = controlador.unirsePartido(anyLong(), modelMock, requestMock);
+		String map = controlador.unirsePartido(anyLong(), modelMock, requestMock);		
 		
 		assertThat(map).isEqualTo("redirect:/iniciarSesion");
 	}

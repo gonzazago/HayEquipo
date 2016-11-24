@@ -60,5 +60,7 @@ public class PartidosServiciosImple implements PartidosServicios {
 		List<Partido> lista = partidoDao.partidosHistorial(Fecha);
 		return lista;
 	}
+	
+	
 
 }

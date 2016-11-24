@@ -14,7 +14,7 @@
 
 <!-- Estilos Propios -->
 <link href="css/estilos.css" rel="stylesheet">
-<link href="css/footer.css" rel="stylesheet">
+
 <link href="css/parallax.css" rel="stylesheet">
 <link rel="stylesheet" href="css/example.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -89,8 +89,9 @@
 					</table>
 			</div>
 	</div>
+
 </div>
 
-<jsp:include page="footer.jsp" />
+
 </body>
 </html>

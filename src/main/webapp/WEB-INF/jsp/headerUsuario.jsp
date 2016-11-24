@@ -12,14 +12,14 @@
 			</button>
 			<a class="navbar-brand" href="home">Hay Equipo !</a>
 		</div>
-				<form class="navbar-form navbar-left">
+			<!-- 	<form class="navbar-form navbar-left">
 					<div class="form-group">
 						<input type="text" class="col-md-6 form-control" placeholder="Buscar..">
 					</div>
 					<button type="submit" class="btn btn-default">
 						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 					</button>
-				</form>
+				</form> -->
 			<ul class="nav navbar-nav navbar-right">
 			<c:choose>
 				<c:when test="${usuario == null}">

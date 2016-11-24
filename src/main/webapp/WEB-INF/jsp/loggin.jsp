@@ -75,6 +75,6 @@
     <p class="text-center">Si no tienes usuarios puedes registrarte haciendo click <a href="registrarse">aqui</a></p>
   </div>
 </div>
-<jsp:include page="footer.jsp" />
+
 </body>
 </html>

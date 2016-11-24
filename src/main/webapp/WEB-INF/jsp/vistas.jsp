@@ -16,7 +16,7 @@
 
 <!-- Estilos Propios -->
 <link href="css/estilos.css" rel="stylesheet">
-<link href="css/footer.css" rel="stylesheet">
+
 <link href="css/parallax.css" rel="stylesheet">
 <link rel="stylesheet" href="css/example.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -35,10 +35,10 @@
 <div class="contenedor">	
 		<div class="container">
     		<div id="slides">
-   				<img src="images/example-slide-1.jpg" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-    			<img src="images/example-slide-2.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-      			<img src="images/example-slide-3.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
-      			<img src="images/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
+   				<img src="images/13600299_1729253490667675_4775242370446807608_n.jpg" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
+    			<img src="images/13606718_1729253947334296_2306003345903001478_n.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
+      			<img src="images/13680569_1729254364000921_8128445278801373452_n.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
+      			<img src="images/13606502_1729255284000829_711466005071647034_n.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
     		</div>
   			</div>
 		<div class="intro-unit">
@@ -114,6 +114,6 @@
 		</div>
 
 </div>
-<jsp:include page="footer.jsp" />
+
 </body>
 </html>
